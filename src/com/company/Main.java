@@ -43,6 +43,14 @@ if(Select==1)
 {Get_Median( InputData);}
 else if(Select==0)
 {break;}
+else if(Select==11){
+         int array[]=new int[5];
+        for(int i=0;i<array.length;i++){
+            array[i]=one.nextInt();
+        }
+        System.out.println(check_palindrom(array));
+    
+}
 
 
 
@@ -145,6 +153,25 @@ public static boolean is_prime(int n) {
 		return prime_array.get(0);
 		
 	}
+       public static boolean check_palindrom(int arr[]){
+        boolean t=false;
+        int arr2[]=new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+            arr2[arr.length-(1+i)]=arr[i];
+        }
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=arr2[i])
+                t=false;
+            else 
+                t=true;
+            
+                
+        }
+        return t;
+        
+    }
+    
+    
 
 
 
