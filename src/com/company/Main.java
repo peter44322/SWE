@@ -141,4 +141,20 @@ public static int minimum_three_numbers(int a , int b , int c )
 	}
 	return smallest ;
 }
+        public static void prime(int[] arry){
+        for(int i=0; i<arry.length; i++){
+        boolean isPrime = true;
+        
+        for (int j=2; j<i; j++)
+        {
+
+            if(arry[i]%j==0){
+                isPrime = false;
+                break;
+            }
+        }
+         if(isPrime)
+              System.out.println(arry[i]+ " are the prime numbers in the array ");}
+        }
+		
 /////////////////////////////////////////////
