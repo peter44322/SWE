@@ -141,4 +141,17 @@ public static int minimum_three_numbers(int a , int b , int c )
 	}
 	return smallest ;
 }
+
+public static int[] sort(int[] input){
+	// SORT THE INPUT ARRAY ASCENDINGLY
+	int len = input.length;
+	for (int i = 0 ; i < len-1 ; i++)
+		for (int j = i + 1; j < len  ; j++)
+			if (input[i] > input[j]){
+				int temp = input[j];
+				input[j] = input[i];
+				input[i] = temp;
+			}
+	return input; 
+}
 /////////////////////////////////////////////
