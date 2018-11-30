@@ -34,26 +34,14 @@ while(true)
       Scanner one = new Scanner(System.in);
       System.out.print("\n\nYour choice: ");
       Select = one.nextInt();
-
 Vector InputData=new Vector(0);
-
-
-
 if(Select==1)
 {Get_Median( InputData);}
 else if(Select==0)
 {break;}
-
-
-
 }
   }
 ///////////////////////////////////////////////////
-
-
-
-
-
 
  static String Check_Data_Type( String input)
   {
@@ -124,8 +112,7 @@ public static boolean is_prime(int n) {
 			if(n%i == 0 ) return false;
 		}return true;
 		
-	}
-	
+	} 
 	public static int smallest_prime(int arr[]) {
 		
 		ArrayList<Integer> prime_array = new ArrayList<Integer>();
@@ -134,18 +121,24 @@ public static boolean is_prime(int n) {
 			if(x == true) {
 				System.out.println(arr[i]);
 			prime_array.add(arr[i]);
-			}
-		
-			
+			}	
 		}
 		if(prime_array.size() == 0 ) {prime_array.add(-1);}
 		Collections.sort(prime_array);
-		
-		
 		return prime_array.get(0);
-		
 	}
-
-
-
 }
+///////////////////////////
+public static int minimum_three_numbers(int a , int b , int c )
+{
+	int smallest;
+	if (a <= b && a <= c) {
+	    smallest = a;
+	} else if (b <= c && b <= a) {
+	    smallest = b;
+	} else {
+	    smallest = c;
+	}
+	return smallest ;
+}
+/////////////////////////////////////////////
