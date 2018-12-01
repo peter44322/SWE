@@ -11,7 +11,6 @@ public class Main {
 
 	public static void main(String[] args)
 	{
-
 		System.out.println("Select operation:\n"
 				+ "\t1-Get Median\n"
 				+ "\t2-Return only primes\n"
@@ -32,9 +31,7 @@ public class Main {
 				+ "\t17-Get the minimum 3 numbers\n"
 				+ "\t18-Execute all\n"
 				+ "\t0-Exit");
-		while(true)
-      
-		{
+		while(true) {
 			int Select;
 			Scanner one = new Scanner(System.in);
 			System.out.print("\n\nYour choice: ");
@@ -67,30 +64,23 @@ public class Main {
 
 		}
 	}
-	///////////////////////////////////////////////////
 
 
+    static Vector<String> getData(){
+        System.out.print("Enter Data (Integer) to get median < separated by 'spaces' >: " );
+        String input;
+        Scanner one = new Scanner(System.in);
+        input = one.nextLine();
+        String[] xString=input.split(" ");
 
+        Vector<String> data = new Vector<String>();
+        for (String word : xString){
+            data.add(word);
+        }
 
+        return data;
 
-
-	static String Check_Data_Type( String input)
-	{
-		String xString1 = null;
-		try {
-			int ch1 = Integer.parseInt(input);
-			xString1="integer";
-		} catch (NumberFormatException e) {}
-		try {
-			float ch2 = Float.parseFloat(input);
-			xString1="float";
-		} catch (NumberFormatException e) {}
-		try {
-			String ch3 = String.valueOf(input);
-			xString1="String";
-		} catch (NumberFormatException e) {}
-		return xString1;
-	}
+    }
 
 	static void Get_Median (Vector InputData)
 	{
@@ -155,8 +145,6 @@ public class Main {
 				System.out.println(arr[i]);
 				prime_array.add(arr[i]);
 			}
-
-
 		}
 		if(prime_array.size() == 0 ) {prime_array.add(-1);}
 		Collections.sort(prime_array);
@@ -199,9 +187,7 @@ public class Main {
             } 
         } 
         return res; //most repeated value
-    } 		
 
-		return prime_array.get(0);
 
 	}
 
@@ -250,48 +236,29 @@ public class Main {
     
 
 }
-///////////////////////////
-public static int minimum_three_numbers(int a , int b , int c )
-{
-	int smallest;
-	if (a <= b && a <= c) {
-	    smallest = a;
-	} else if (b <= c && b <= a) {
-	    smallest = b;
-	} else {
-	    smallest = c;
+public static int minimum_three_numbers(int a , int b , int c ) {
+    int smallest;
+    if (a <= b && a <= c) {
+        smallest = a;
+    } else if (b <= c && b <= a) {
+        smallest = b;
+    } else {
+        smallest = c;
 
-	}
-public static int minimum_three_numbers(int a , int b , int c )
-{
-	int smallest;
-	if (a <= b && a <= c) {
-	    smallest = a;
-	} else if (b <= c && b <= a) {
-	    smallest = b;
-	} else {
-	    smallest = c;
-	}
+    }
 
 
+    public static int[] sort ( int[] input){
+
+        int len = input.length;
+        for (int i = 0; i < len - 1; i++)
+            for (int j = i + 1; j < len; j++)
+                if (input[i] > input[j]) {
+                    int temp = input[j];
+                    input[j] = input[i];
+                    input[i] = temp;
+                }
+        return input;
+
+    }
 }
-
-
-
-
-public static int[] sort(int[] input){
-	
-	// SORT THE INPUT ARRAY ASCENDINGLY
-	int len = input.length;
-	for (int i = 0 ; i < len-1 ; i++)
-		for (int j = i + 1; j < len  ; j++)
-			if (input[i] > input[j]){
-				int temp = input[j];
-				input[j] = input[i];
-				input[i] = temp;
-			}
-	return input; 
-
-}
-/////////////////////////////////////////////
-
