@@ -4,8 +4,8 @@ import java.util.Collections;
 import java.util.Scanner;
 import java.util.Vector;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
+//import com.sun.org.apache.bcel.internal.generic.AALOAD;
+//import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
 
 import java.util.HashMap;
 //import com.sun.javafx.scene.EnteredExitedHandler;
@@ -23,8 +23,8 @@ public class Main {
 				+ "\t5-Get the maximum 3 numbers\n"                      //Done
 				+ "\t6-Distinct array\n"                                 //Done
 				+ "\t7-Shift array\n"                                    //Done
-				+ "\t8-Reverse array\n"                                  //Done  
-				+ "\t9-Count primes\n"                                   //Done 
+				+ "\t8-Reverse array\n"                                  //Done
+				+ "\t9-Count primes\n"                                   //Done
 				+ "\t10-Check sorted\n"                                  //Done
 				+ "\t11-Check palindrome\n"                              //Done
 				+ "\t12-Find the smallest prime\n"                       //Done
@@ -36,20 +36,20 @@ public class Main {
 				+ "\t18-Execute all\n"
 				+ "\t0-Exit");
 		while(true) {
-			
+
 			int Select;
 			Scanner one = new Scanner(System.in);
 			System.out.print("\n\nYour choice: ");
 			Select = one.nextInt();
-			
-			 if(Select==0)
-				{
-					break;
-				}
+
+			if(Select==0)
+			{
+				break;
+			}
 
 			Vector InputData=new Vector(0);
 
-getData(InputData);
+			getData(InputData);
 
 			if(Select==1)
 			{
@@ -125,7 +125,7 @@ getData(InputData);
 			{
 				Get_AVG(InputData);
 				System.out.println("\n");
-				
+
 				Get_Median( InputData);
 				System.out.println("\n");
 
@@ -167,54 +167,54 @@ getData(InputData);
 
 				Distinict_Array(InputData);
 				System.out.println("\n");
-				
+
 				Shift_array(InputData);
 				System.out.println("\n");
 
-
 			}
-			
+
 
 		}
 	}
 
-	
+	private static void zero_if_less_than_zero(Vector inputData) {
+	}
 
 
-    static void getData(  Vector<String> data )
-    {
-        System.out.print("Enter Data (Integer)  < separated by 'spaces' >: " );
-        String input;
-        Scanner one = new Scanner(System.in);
-        input = one.nextLine();
-        String[] xString=input.split(" ");
+	static void getData(  Vector<String> data )
+	{
+		System.out.print("Enter Data (Integer)  < separated by 'spaces' >: " );
+		String input;
+		Scanner one = new Scanner(System.in);
+		input = one.nextLine();
+		String[] xString=input.split(" ");
 
-        for(int i=0 ; i<xString.length ; i++)
-        {
-        	data.add(xString[i]);
-        }
+		for(int i=0 ; i<xString.length ; i++)
+		{
+			data.add(xString[i]);
+		}
 
-    }
+	}
 
 
-    static Vector<Integer> convertToInt(Vector<String> vector)
-    {
-        Vector<Integer>yIntegers=new Vector<Integer>();
-        for(int i=0 ; i<vector.size() ;i++)
-        {
-            yIntegers.add(Integer.parseInt((String)vector.get(i)));
-        }
-        return  yIntegers;
+	static Vector<Integer> convertToInt(Vector<String> vector)
+	{
+		Vector<Integer>yIntegers=new Vector<Integer>();
+		for(int i=0 ; i<vector.size() ;i++)
+		{
+			yIntegers.add(Integer.parseInt((String)vector.get(i)));
+		}
+		return  yIntegers;
 	}
 
 
 
 	static void Get_Median (Vector<String> ss)
 	{
-		
+
 		Vector<Integer> yIntegers=convertToInt(ss);
-		
-		
+
+
 		Collections.sort(yIntegers);
 		System.out.println("The Sorted Data: "+yIntegers);
 		int length=yIntegers.size();
@@ -238,115 +238,115 @@ getData(InputData);
 
 
 	///////////////////////
-	public static boolean is_prime(int n) 
+	public static boolean is_prime(int n)
 	{
 
 		if(n == 1 ) return false;
-		for(int i=2 ; i<n;i++) 
+		for(int i=2 ; i<n;i++)
 		{
 			if(n%i == 0 ) return false;
 		}
 		return true;
 	}
-	
-	public static void Print_only_prime(Vector<String> ss) 
+
+	public static void Print_only_prime(Vector<String> ss)
 	{
 		Vector<Integer> yIntegers=convertToInt(ss);
 		System.out.print("The prime numbers is: ");
-for(int i=0 ; i<ss.size() ; i++)
-{
-	
-	boolean flag =is_prime(yIntegers.get(i));
-	if(flag==true)
-	{
-	System.out.print(yIntegers.get(i)+" ");	
+		for(int i=0 ; i<ss.size() ; i++)
+		{
+
+			boolean flag =is_prime(yIntegers.get(i));
+			if(flag==true)
+			{
+				System.out.print(yIntegers.get(i)+" ");
+			}
+
+		}
 	}
-	
-}	
-	}
-	
-	public static void smallest_prime(Vector<String> ss) 
+
+	public static void smallest_prime(Vector<String> ss)
 	{
 		Vector<Integer> yIntegers=convertToInt(ss);
 		Vector<Integer> ex =new Vector<Integer>(0)  ;
-for(int i=0 ; i<ss.size() ; i++)
-{
-	boolean flag =is_prime(yIntegers.get(i));
-	if(flag==true)
-	{
-//	System.out.print(yIntegers.get(i)+" ");	
-	ex.add(yIntegers.get(i));
-	
-	}	
-	}
-Collections.sort(ex);
+		for(int i=0 ; i<ss.size() ; i++)
+		{
+			boolean flag =is_prime(yIntegers.get(i));
+			if(flag==true)
+			{
+//	System.out.print(yIntegers.get(i)+" ");
+				ex.add(yIntegers.get(i));
+
+			}
+		}
+		Collections.sort(ex);
 //System.out.println(ex);
-System.out.println("The smallest prime is: "+ex.get(0));
-}
-	public static void Largest_prime(Vector<String> ss) 
+		System.out.println("The smallest prime is: "+ex.get(0));
+	}
+	public static void Largest_prime(Vector<String> ss)
 	{
 		Vector<Integer> yIntegers=convertToInt(ss);
 		Vector<Integer> ex =new Vector<Integer>(0)  ;
-for(int i=0 ; i<ss.size() ; i++)
-{
-	boolean flag =is_prime(yIntegers.get(i));
-	if(flag==true)
-	{
-//	System.out.print(yIntegers.get(i)+" ");	
-	ex.add(yIntegers.get(i));
-	
-	}	
-	}
-Collections.sort(ex);
+		for(int i=0 ; i<ss.size() ; i++)
+		{
+			boolean flag =is_prime(yIntegers.get(i));
+			if(flag==true)
+			{
+//	System.out.print(yIntegers.get(i)+" ");
+				ex.add(yIntegers.get(i));
+
+			}
+		}
+		Collections.sort(ex);
 //System.out.println(ex);
-System.out.println("The largest prime is: "+ex.get(ex.size()-1));
-}
-	
-	public static void Most_Repeated_value(Vector<String>ss) 
+		System.out.println("The largest prime is: "+ex.get(ex.size()-1));
+	}
+
+	public static void Most_Repeated_value(Vector<String>ss)
 	{
 		int Counter= 0;
 		Vector<String>not_Repeated = new Vector<String>(0);
 		Vector<Integer>freq = new Vector<Integer>(0);
 		for(int i=0 ; i<ss.size() ; i++)
 		{
-			
+
 			if (not_Repeated.contains(ss.get(i))){continue;}
 			not_Repeated.add(ss.get(i));
 		}
-		
+
 		for(int i=0 ; i<not_Repeated.size() ; i++)
 		{
-		    for (int j = 0; j < ss.size(); j++) 
-		        {
-		    	        if(not_Repeated.get(i).equals(ss.get(j)))  {Counter++;}
-		        }
-		   freq.add(Counter);
-	        Counter=0;
+			for (int j = 0; j < ss.size(); j++)
+			{
+				if(not_Repeated.get(i).equals(ss.get(j)))  {Counter++;}
+			}
+			freq.add(Counter);
+			Counter=0;
 		}
 		int max = Collections.max(freq);
- int idx=0;
+		int idx=0;
 		for(int i=0 ; i<freq.size() ; i++)
 		{
 			idx=freq.indexOf(max);
 			//freq.contains(max);
 		}
 		System.out.println("The most repeated value is: "+not_Repeated.get(idx));
-			
+
 	}
-	
-	public static void check_sorted(Vector<String>ss) 
+
+	public static void check_sorted(Vector<String>ss)
 	{
 		System.out.print("\nCheck sorted: ");
 		Vector<Integer> yIntegers=convertToInt(ss);
 		Vector<Integer> sorted = new Vector<Integer>(0);
-		
+
 		for(int i=0 ; i<yIntegers.size() ; i++)
 		{
 			sorted.add(yIntegers.get(i));
 		}
 		Collections.sort(sorted);
 		boolean flag =true;
-		for (int i = 0; i < sorted.size(); i++) 
+		for (int i = 0; i < sorted.size(); i++)
 		{
 			if(yIntegers.get(i).equals(sorted.get(i)) )
 			{
@@ -357,13 +357,13 @@ System.out.println("The largest prime is: "+ex.get(ex.size()-1));
 				flag=false;
 				break;
 			}
-			
+
 		}
 		System.out.println(flag);
-		
+
 	}
 
-	public static void minimum_three_numbers(Vector<String>ss) 
+	public static void minimum_three_numbers(Vector<String>ss)
 	{
 		Vector<Integer> yIntegers=convertToInt(ss);
 		Collections.sort(yIntegers);
@@ -373,9 +373,9 @@ System.out.println("The largest prime is: "+ex.get(ex.size()-1));
 			System.out.print(yIntegers.get(i)+ " ");
 		}
 
-		
+
 	}
-	public static void maximum_three_numbers(Vector<String>ss) 
+	public static void maximum_three_numbers(Vector<String>ss)
 	{
 		Vector<Integer> yIntegers=convertToInt(ss);
 		Collections.sort(yIntegers);
@@ -385,48 +385,46 @@ System.out.println("The largest prime is: "+ex.get(ex.size()-1));
 			System.out.print(yIntegers.get(i)+ " ");
 		}
 
-		
+
 	}
-	
-	public static void Shift_array(Vector<String>ss) 
+
+	public static void Shift_array(Vector<String>ss)
 	{
-		
+
 		String Temp="";
-        Temp  += ss.elementAt(0);
-        ss.remove(0);
-        ss.add(Temp);
-        System.out.print("The shifted array is: ");
-        for(int i = 0 ; i < ss.size();i++)
-        {
-            System.out.print(ss.elementAt(i) );
-        }
+		Temp  += ss.elementAt(0);
+		ss.remove(0);
+		ss.add(Temp);
+		System.out.print("The shifted array is: ");
+		for(int i = 0 ; i < ss.size();i++)
+		{
+			System.out.print(ss.elementAt(i) );
+		}
 	}
-	
-	public static void Zero_If_lessThan_Zero(Vector<String>ss) 
+
+	public static void Zero_If_lessThan_Zero(Vector<String>ss)
 	{
-		
+
 		System.out.print("Check Zero_If_less_Than_Zero:  ");
 		Vector<Integer> yIntegers=convertToInt(ss);
-		
-		for (int i = 0; i < yIntegers.size(); i++) 
+
+		for (int i = 0; i < yIntegers.size(); i++)
 		{
 			if(yIntegers.get(i)<0)
 			{
 				yIntegers.remove(i);
 				yIntegers.add(i, 0);
-			}	
-		}
-		
-		for(int i=0 ; i<ss.size() ; i++)
-			{
-				System.out.print(yIntegers.get(i)+" ");
 			}
-		
+		}
 
-		
+		for(int i=0 ; i<ss.size() ; i++)
+		{
+			System.out.print(yIntegers.get(i)+" ");
+		}
+
 	}
-	
-	public static void Sort_Array(Vector<String>ss) 
+
+	public static void Sort_Array(Vector<String>ss)
 	{
 		Vector<Integer> yIntegers=convertToInt(ss);
 		Collections.sort(yIntegers);
@@ -447,23 +445,23 @@ System.out.println("The largest prime is: "+ex.get(ex.size()-1));
 			System.out.print(yIntegers.get(i)+" ");
 		}
 	}
-	
+
 	public static void Count_Primes(Vector<String>ss)
 	{
 		Vector<Integer> yIntegers=convertToInt(ss);
 		Vector<Integer> count =new Vector<Integer>(0)  ;
-for(int i=0 ; i<ss.size() ; i++)
-    {
-	   boolean flag =is_prime(yIntegers.get(i));
-	   if(flag==true)
-	   {
-	     	count.add(yIntegers.get(i));
-	   }
-		
+		for(int i=0 ; i<ss.size() ; i++)
+		{
+			boolean flag =is_prime(yIntegers.get(i));
+			if(flag==true)
+			{
+				count.add(yIntegers.get(i));
+			}
+
+		}
+		System.out.println("The number of primes number is: "+count.size());
 	}
-System.out.println("The number of primes number is: "+count.size());
-	}
-	
+
 	public static void Get_AVG(Vector<String>ss)
 	{
 		Vector<Integer> yIntegers=convertToInt(ss);
@@ -472,20 +470,20 @@ System.out.println("The number of primes number is: "+count.size());
 		{
 			sum+=yIntegers.get(i);
 		}
-		
+
 		double avg = sum / yIntegers.size();
 		System.out.println("The Average of the numbers is: "+ avg);
-		
+
 	}
-	
-	public static void Distinict_Array(Vector<String>ss) 
+
+	public static void Distinict_Array(Vector<String>ss)
 	{
 		int Counter= 0;
 		Vector<String>not_Repeated = new Vector<String>(0);
 		Vector<Integer>freq = new Vector<Integer>(0);
 		for(int i=0 ; i<ss.size() ; i++)
 		{
-			
+
 			if (not_Repeated.contains(ss.get(i))){continue;}
 			not_Repeated.add(ss.get(i));
 		}
@@ -494,32 +492,32 @@ System.out.println("The number of primes number is: "+count.size());
 		{
 			System.out.print(not_Repeated.get(i)+" ");
 		}
-	
+
 	}
-	
+
 	public static void Reverse_Arry(Vector<String>ss)
 	{
 		Collections.reverse(ss);
-System.out.print("The reversed array is: ");
-for(int i=0 ; i<ss.size() ; i++)
-{
-	System.out.print(ss.get(i)+" ");
-}
-		
+		System.out.print("The reversed array is: ");
+		for(int i=0 ; i<ss.size() ; i++)
+		{
+			System.out.print(ss.get(i)+" ");
+		}
+
 	}
-	
+
 	public static void Check_Palindrom(Vector<String>ss)
 	{
 		System.out.print("\ncheck Palindrom  ");
 		boolean flag=true;
-		
+
 		Vector<String>Rev=new Vector<String>(0);
 		for(int i=0 ; i<ss.size(); i++)
 		{
 			Rev.add(ss.get(i));
 		}
 		Collections.reverse(Rev);
-		
+
 		for(int i=0 ; i<ss.size() ; i++)
 		{
 			if (ss.get(i).equals(Rev.get(i)))
@@ -532,8 +530,8 @@ for(int i=0 ; i<ss.size() ; i++)
 			}
 		}
 		System.out.println(flag);
-		
-		
+
+
 	}
 
 }
