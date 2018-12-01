@@ -37,6 +37,9 @@ while(true)
 Vector InputData=new Vector(0);
 if(Select==1)
 {Get_Median( InputData);}
+else if(Select==4){
+    Get_Avarage(InputData);
+}
 else if(Select==0)
 {break;}
 }
@@ -60,6 +63,19 @@ else if(Select==0)
      } catch (NumberFormatException e) {}
   return xString1;
   }
+   static void Get_Avarage (Vector InputData){
+            Scanner in = new Scanner(System.in);
+             int sum=0;
+            int size;
+            System.out.println("Enter the size of the data:");
+            size=in.nextInt();
+             System.out.println("Enter the numbers to get the avarage:");
+             for(int i=0;i<size;i++){
+                InputData.add(in.nextInt());
+                sum+=(int)InputData.get(i);
+             }
+              System.out.print("The avarage =" + sum/size);
+         }
 
   static void Get_Median (Vector InputData)
   {
