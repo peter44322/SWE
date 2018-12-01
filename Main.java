@@ -34,31 +34,26 @@ while(true)
       Scanner one = new Scanner(System.in);
       System.out.print("\n\nYour choice: ");
       Select = one.nextInt();
+
 Vector InputData=new Vector(0);
+
+
+
 if(Select==1)
 {Get_Median( InputData);}
-else if(Select==4){
-    Get_Avarage(InputData);
-}
 else if(Select==0)
 {break;}
-
-else if(Select==11){
-         int array[]=new int[5];
-        for(int i=0;i<array.length;i++){
-            array[i]=one.nextInt();
-        }
-        System.out.println(check_palindrom(array));
-    
-}
-
-
 
 
 
 }
   }
 ///////////////////////////////////////////////////
+
+
+
+
+
 
  static String Check_Data_Type( String input)
   {
@@ -77,19 +72,6 @@ else if(Select==11){
      } catch (NumberFormatException e) {}
   return xString1;
   }
-   static void Get_Avarage (Vector InputData){
-            Scanner in = new Scanner(System.in);
-             int sum=0;
-            int size;
-            System.out.println("Enter the size of the data:");
-            size=in.nextInt();
-             System.out.println("Enter the numbers to get the avarage:");
-             for(int i=0;i<size;i++){
-                InputData.add(in.nextInt());
-                sum+=(int)InputData.get(i);
-             }
-              System.out.print("The avarage =" + sum/size);
-         }
 
   static void Get_Median (Vector InputData)
   {
@@ -141,71 +123,55 @@ public static boolean is_prime(int n) {
 		for(int i=2 ; i<n;i++) {
 			if(n%i == 0 ) return false;
 		}return true;
-		
-	} 
+
+	}
+
 	public static int smallest_prime(int arr[]) {
-		
+
 		ArrayList<Integer> prime_array = new ArrayList<Integer>();
 		for(int i=0;i<arr.length;i++) {
 			boolean x = is_prime(arr[i]);
 			if(x == true) {
 				System.out.println(arr[i]);
 			prime_array.add(arr[i]);
-			}	
+			}
+
+
 		}
 		if(prime_array.size() == 0 ) {prime_array.add(-1);}
 		Collections.sort(prime_array);
+
+
 		return prime_array.get(0);
+
 	}
 
-       public static boolean check_palindrom(int arr[]){
-        boolean t=false;
-        int arr2[]=new int[arr.length];
-        for(int i=0;i<arr.length;i++){
-            arr2[arr.length-(1+i)]=arr[i];
-        }
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]!=arr2[i])
-                t=false;
-            else 
-                t=true;
-            
-                
-        }
-        return t;
-        
-    }
-    
-    
 
-}
-///////////////////////////
-public static int minimum_three_numbers(int a , int b , int c )
+class ReturnOnlyPrimes
+
 {
-	int smallest;
-	if (a <= b && a <= c) {
-	    smallest = a;
-	} else if (b <= c && b <= a) {
-	    smallest = b;
-	} else {
-	    smallest = c;
-	}
-	return smallest ;
+   static void ReturnOnlyPrimes(String[] args)
+   {
+       int i =0;
+       int num =0;
+
+       String  primeNumbers = "";
+
+       for (i = 1; i <arr.length; i++)
+       {
+          int counter=0;
+          for(num =i; num<=1; num++)
+	  {
+             if(i%num==0)
+	     {counter = counter + 1;}
+	  }
+	  if (counter ==2)
+	  {
+	     primeNumbers = primeNumbers + i + " ";
+	  }
+       }
+       System.out.println("The prime numbers from your list are :");
+       System.out.println(primeNumbers);
+   }
 }
-
-
-
-public static int[] sort(int[] input){
-	
-	// SORT THE INPUT ARRAY ASCENDINGLY
-	int len = input.length;
-	for (int i = 0 ; i < len-1 ; i++)
-		for (int j = i + 1; j < len  ; j++)
-			if (input[i] > input[j]){
-				int temp = input[j];
-				input[j] = input[i];
-				input[i] = temp;
-			}
-	return input; 
 }
-/////////////////////////////////////////////
