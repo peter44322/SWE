@@ -42,6 +42,20 @@ else if(Select==4){
 }
 else if(Select==0)
 {break;}
+
+else if(Select==11){
+         int array[]=new int[5];
+        for(int i=0;i<array.length;i++){
+            array[i]=one.nextInt();
+        }
+        System.out.println(check_palindrom(array));
+    
+}
+
+
+
+
+
 }
   }
 ///////////////////////////////////////////////////
@@ -143,6 +157,27 @@ public static boolean is_prime(int n) {
 		Collections.sort(prime_array);
 		return prime_array.get(0);
 	}
+
+       public static boolean check_palindrom(int arr[]){
+        boolean t=false;
+        int arr2[]=new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+            arr2[arr.length-(1+i)]=arr[i];
+        }
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=arr2[i])
+                t=false;
+            else 
+                t=true;
+            
+                
+        }
+        return t;
+        
+    }
+    
+    
+
 }
 ///////////////////////////
 public static int minimum_three_numbers(int a , int b , int c )
@@ -157,6 +192,7 @@ public static int minimum_three_numbers(int a , int b , int c )
 	}
 	return smallest ;
 }
+
 
 
 public static int[] sort(int[] input){
