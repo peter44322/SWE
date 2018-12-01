@@ -142,3 +142,19 @@ public static int minimum_three_numbers(int a , int b , int c )
 	return smallest ;
 }
 /////////////////////////////////////////////
+static public void shiftting(Vector<String>Text)
+    {
+        String Temp="";
+        Temp  += Text.elementAt(0);
+        Text.remove(0);
+        Text.add(Temp);
+        System.out.println("Text After Shifting:");
+        for(int i = 0 ; i < Text.size();i++)
+        {
+            System.out.print(Text.elementAt(i) + " ");
+        }
+    }
+    public static void main(String[] args) {
+        
+    }
+///////////////////	//////////////////////////////////////////////////
