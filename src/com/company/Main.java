@@ -3,9 +3,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.Vector;
+import java.util.HashMap;
 //import com.sun.javafx.scene.EnteredExitedHandler;
 
 public class Main {
+
 
 	public static void main(String[] args)
 	{
@@ -31,6 +33,7 @@ public class Main {
 				+ "\t18-Execute all\n"
 				+ "\t0-Exit");
 		while(true)
+      
 		{
 			int Select;
 			Scanner one = new Scanner(System.in);
@@ -135,6 +138,7 @@ public class Main {
 
 	///////////////////////
 	public static boolean is_prime(int n) {
+
 		if(n == 1 ) return false;
 		for(int i=2 ; i<n;i++) {
 			if(n%i == 0 ) return false;
@@ -158,9 +162,49 @@ public class Main {
 		Collections.sort(prime_array);
 
 
+		return prime_array.get(0);	
+	}
+	public static void Most_Repeated_value(Vector<Integer>myarr,String input) {
+			
+		  String[] xString=input.split(" ");
+	      for(int i=0 ; i<xString.length ; i++)
+	      {
+	        myarr.add(Integer.parseInt(xString[i]));
+	      }
+		// Insert all elements in hash map 
+        Map<Integer, Integer> hp = 
+               new HashMap<Integer, Integer>(); 
+        for(int i = 0; i < myarr.size() i++) 
+        { 
+            int key = myarr.get(i); 
+            if(hp.containsKey(key)) 
+            { 
+                int freq = hp.get(key); 
+                freq++; 
+                hp.put(key, freq); 
+            } 
+            else
+            { 
+                hp.put(key, 1); 
+            } 
+        } 
+        // find max frequency. 
+        int max_count = 0, res = -1;   
+        for(Entry<Integer, Integer> val : hp.entrySet()) 
+        { 
+            if (max_count < val.getValue()) 
+            { 
+                res = val.getKey(); 
+                max_count = val.getValue(); 
+            } 
+        } 
+        return res; //most repeated value
+    } 		
+
 		return prime_array.get(0);
 
 	}
+
 
 	public static <t extends Comparable>  boolean check_sorted(Vector<t> input)
 	{
@@ -185,8 +229,69 @@ public class Main {
 		else {
 			return false;
 		}
+       public static boolean check_palindrom(int arr[]){
+        boolean t=false;
+        int arr2[]=new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+            arr2[arr.length-(1+i)]=arr[i];
+        }
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=arr2[i])
+                t=false;
+            else 
+                t=true;
+            
+                
+        }
+        return t;
+        
+    }
+    
+    
+
+}
+///////////////////////////
+public static int minimum_three_numbers(int a , int b , int c )
+{
+	int smallest;
+	if (a <= b && a <= c) {
+	    smallest = a;
+	} else if (b <= c && b <= a) {
+	    smallest = b;
+	} else {
+	    smallest = c;
+
+	}
+public static int minimum_three_numbers(int a , int b , int c )
+{
+	int smallest;
+	if (a <= b && a <= c) {
+	    smallest = a;
+	} else if (b <= c && b <= a) {
+	    smallest = b;
+	} else {
+	    smallest = c;
 	}
 
 
+}
+
+
+
+
+public static int[] sort(int[] input){
+	
+	// SORT THE INPUT ARRAY ASCENDINGLY
+	int len = input.length;
+	for (int i = 0 ; i < len-1 ; i++)
+		for (int j = i + 1; j < len  ; j++)
+			if (input[i] > input[j]){
+				int temp = input[j];
+				input[j] = input[i];
+				input[i] = temp;
+			}
+	return input; 
 
 }
+/////////////////////////////////////////////
+
