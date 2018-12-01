@@ -2,6 +2,7 @@ package com.company;
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.Vector;
+import java.util.HashMap;
 //import com.sun.javafx.scene.EnteredExitedHandler;
 
 public class Main {
@@ -35,13 +36,31 @@ while(true)
       System.out.print("\n\nYour choice: ");
       Select = one.nextInt();
 Vector InputData=new Vector(0);
+
+System.out.print("Enter Data  < separated by 'spaces' >: " );
+String input;
+Scanner one = new Scanner(System.in);
+  input = one.nextLine();
+
+
+if(Select==1)
+{
+	Get_Median( InputData,input);
+}
+else if(select==16) {
+	Vector<Integer> mydata=new Vector<Integer>();
+	System.out.println("Most repeated value is : " + Most_Repeated_value(mydata,input));
+
 if(Select==1)
 {Get_Median( InputData);}
 else if(Select==4){
     Get_Avarage(InputData);
+
 }
 else if(Select==0)
-{break;}
+{
+	break;
+}
 
 else if(Select==11){
          int array[]=new int[5];
@@ -51,6 +70,7 @@ else if(Select==11){
         System.out.println(check_palindrom(array));
     
 }
+
 
 
 
@@ -91,13 +111,10 @@ else if(Select==11){
               System.out.print("The avarage =" + sum/size);
          }
 
-  static void Get_Median (Vector InputData)
+  static void Get_Median (Vector InputData,String input)
   {
-    System.out.print("Enter Data (Integer) to get median < separated by 'spaces' >: " );
-    String input;
-    Scanner one = new Scanner(System.in);
-      input = one.nextLine();
-    String[] xString=input.split(" ");
+    
+      String[] xString=input.split(" ");
 
       for(int i=0 ; i<xString.length ; i++)
       {
@@ -129,12 +146,7 @@ else if(Select==11){
 
           System.out.println("The median is: "+x1);
       }
-
-
-
   }
-
-
 ///////////////////////
 public static boolean is_prime(int n) {
 		if(n == 1 ) return false;
@@ -155,6 +167,45 @@ public static boolean is_prime(int n) {
 		}
 		if(prime_array.size() == 0 ) {prime_array.add(-1);}
 		Collections.sort(prime_array);
+
+		return prime_array.get(0);	
+	}
+	public static void Most_Repeated_value(Vector<Integer>myarr,String input) {
+			
+		  String[] xString=input.split(" ");
+	      for(int i=0 ; i<xString.length ; i++)
+	      {
+	        myarr.add(Integer.parseInt(xString[i]));
+	      }
+		// Insert all elements in hash map 
+        Map<Integer, Integer> hp = 
+               new HashMap<Integer, Integer>(); 
+        for(int i = 0; i < myarr.size() i++) 
+        { 
+            int key = myarr.get(i); 
+            if(hp.containsKey(key)) 
+            { 
+                int freq = hp.get(key); 
+                freq++; 
+                hp.put(key, freq); 
+            } 
+            else
+            { 
+                hp.put(key, 1); 
+            } 
+        } 
+        // find max frequency. 
+        int max_count = 0, res = -1;   
+        for(Entry<Integer, Integer> val : hp.entrySet()) 
+        { 
+            if (max_count < val.getValue()) 
+            { 
+                res = val.getKey(); 
+                max_count = val.getValue(); 
+            } 
+        } 
+        return res; //most repeated value
+    } 		
 		return prime_array.get(0);
 	}
 
@@ -207,5 +258,6 @@ public static int[] sort(int[] input){
 				input[i] = temp;
 			}
 	return input; 
+
 }
 /////////////////////////////////////////////
