@@ -58,12 +58,11 @@ public class Main {
 			{
 				break;
 			}
-			
-
-
 
 		}
 	}
+
+	
 
 
     static Vector<String> getData(){
@@ -77,33 +76,26 @@ public class Main {
         for (String word : xString){
             data.add(word);
         }
-
         return data;
-
     }
 
-	static void Get_Median (Vector InputData)
+
+    static Vector<Integer> convertToInt(Vector<String> vector){
+        Vector<Integer>yIntegers=new Vector<Integer>();
+        for(int i=0 ; i<vector.size() ;i++)
+        {
+            yIntegers.add(Integer.parseInt((String)vector.get(i)));7
+        }
+        return  yIntegers;
+	}
+
+
+
+	static void Get_Median (Vector<Integer> yIntegers)
 	{
-		System.out.print("Enter Data (Integer) to get median < separated by 'spaces' >: " );
-		String input;
-		Scanner one = new Scanner(System.in);
-		input = one.nextLine();
-		String[] xString=input.split(" ");
-
-		for(int i=0 ; i<xString.length ; i++)
-		{
-			InputData.add(xString[i]);
-		}
-		Vector<Integer>yIntegers=new Vector<Integer>(0);
-		for(int i=0 ; i<InputData.size() ;i++)
-		{
-			yIntegers.add(Integer.parseInt((String) InputData.get(i)));
-		}
-		Collections.sort(InputData);
 		Collections.sort(yIntegers);
-
 		System.out.println("The Sorted Data: "+yIntegers);
-		int length=InputData.size();
+		int length=yIntegers.size();
 
 		if (length%2==0) //even
 		{
@@ -120,9 +112,6 @@ public class Main {
 
 			System.out.println("The median is: "+x1);
 		}
-
-
-
 	}
 
 
