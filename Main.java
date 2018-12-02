@@ -1,5 +1,6 @@
 package com.company;
 import java.util.Collections;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
 //import com.sun.javafx.scene.EnteredExitedHandler;
@@ -174,4 +175,27 @@ class ReturnOnlyPrimes
        System.out.println(primeNumbers);
    }
 }
+}
+class Shuffle {
+
+    public Vector shuffle(Vector arr)
+    {
+        
+        for (int i = arr.size()-1 ; i>0 ; i-- )
+        {
+            int index , temp ; 
+            Random random = new Random() ;
+            index = random.nextInt(i+1) ; 
+            temp = (int) arr.get(index) ;
+            arr.set(index, arr.get(i));
+            arr.set(i, temp);
+        }
+        
+        for (int i=0 ; i< arr.size() ; ++i)
+        {
+            System.out.println(arr.get(i));
+        }
+        return arr ;
+    }
+    
 }
